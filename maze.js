@@ -9,17 +9,12 @@ maze_size.addEventListener("change", () => {
     let size = maze_size.value;
     if(!bool){makeGrid(size);}
 
-        
-  
-
-
-
 })
 
  function makeGrid(n) {
-    const five = [[0, 1, 0, 1, 0], [0, 0, 0, 0, 0], [0, 0, 1, 0, 1], [0, 1, 0, 0, 0], [1, 0, 0, 1, 0]];
-    const seven = [[0, 1, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0], [1, 1, 0, 0, 0, 0, 0], [0, 0, 1, 1, 1, 0, 0], [1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 1, 1, 1, 1], [1, 0, 0, 0, 0, 0, 0]];
-    const nine = [[0, 0, 1, 0, 0, 0, 0, 0, 0], [1, 0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0, 0], [0, 1, 1, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [1,1,1,1,1,1,1,1, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
+    const five = [[0, 1, 0, 1, 0], [0, 0, 0, 0, 0], [0, 0, 1, 0, 1], [0, 1, 0, 0, 1], [1, 0, 0, 0, 0]];
+    const seven = [[0, 1, 1, 0, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0], [1, 1, 0, 0, 0, 1, 0], [0, 0, 1, 1, 1, 0, 0], [1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 1, 1, 1, 1], [1, 0, 0, 0, 0, 0, 0]];
+    const nine = [[0, 0, 1, 0, 0, 0, 0, 0, 0], [1, 0, 1, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 1, 0, 0, 0], [0, 1, 1, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0, 0], [1,1,1,1,1,1,1,1, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 1, 0, 1, 1], [0, 0, 0, 0, 0, 0, 0, 0, 0]];
     let curr = five;
     if (n == 9) {
         curr = nine;
@@ -32,9 +27,9 @@ maze_size.addEventListener("change", () => {
     let t = solveMaze(curr, curr.length, 0, 0, "", []);
    
     
+    console.log(t)
     if (t.length) {
         t = t[0];
-        console.log(t)
         let k = 0;
         let i = 0;
         let j = 0;
@@ -80,7 +75,7 @@ maze_size.addEventListener("change", () => {
                 j++;
             }
             k++
-        },500)
+        },200)
         
     }else{
        console.log("No paths found")
@@ -125,13 +120,12 @@ function solveMaze(arr, n, i, j, string, ans) {
         return;
     }
     arr[i][j] = 2;
-
     
     
-    solveMaze(arr, n, i + 1, j, string + "D", ans);
     solveMaze(arr, n, i, j + 1, string + "R", ans);
-    solveMaze(arr, n, i, j - 1, string + "L", ans);
+    solveMaze(arr, n, i + 1, j, string + "D", ans);
     solveMaze(arr, n, i - 1, j, string + "U", ans);
+    solveMaze(arr, n, i, j - 1, string + "L", ans);
     return ans
 }
 
