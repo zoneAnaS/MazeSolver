@@ -2,25 +2,34 @@
 *{
     font-family: 'Kanit', sans-serif;
     box-sizing: border-box;
+    margin: 0;
+}
+h2{
+    text-align: center;
+    margin-bottom: 0;
 }
 body{
-    background-color: rgb(208, 252, 142);
+    background-color:rgb(230, 255, 194);
+    min-height: 100vh;
 }
 h1{
-    margin: 50px auto 20px auto;
-    color: rgb(163, 184, 255);
-    text-shadow:  black 2px 2px;
+    margin: 20px auto 20px auto;
+    color: rgb(255, 255, 1);
+    text-shadow: -1px 1px 0 #000,
+                          1px 1px 0 #000,
+                         1px -1px 0 #000,
+                        -1px -1px 0 #000;
     text-align: center;
     width: max-content;
+    font-size: 40px;
+    letter-spacing: 2px;
     /* background-color: rgb(159, 255, 81); */
 }
 #maze_container{
     display: grid;
     margin: auto;
-    
     width: 650px;
     height: 650px;
-    background-color: rgb(225, 255, 245);
     border: 10px solid black;
     border-radius: 10px;
 }
@@ -34,14 +43,40 @@ h1{
 }
 
 .cell{
-    background-color: rgb(193, 193, 193);
-    border: 1px solid rgb(145, 145, 145);
+    background-color: rgb(188, 188, 188);
+    border: 1px solid rgb(141, 133, 133);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .block{
     background-color: rgb(0, 0, 0);
+    border: none;
 }
 .green{
-    background-color: green;
+    background-color: rgb(0, 132, 0);
+}
+#buttons{
+    text-align: center;
+    margin-bottom: 10px;
+}
+h3{
+    text-align: center;
+}
+.sbtn{
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    padding: 2px 20px;
+    background-color:rgb(208, 255, 141);
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.sbtn:hover{
+    background-color: rgb(0, 132, 0);
+    border: 3px solid rgb(255, 255, 255);
+    color: white;
 }
 @media screen and (min-width:410px) and (max-width:690px){
     #maze_container{
@@ -49,12 +84,25 @@ h1{
         width: 400px;
         height: 400px;
     }
+    h1{
+        font-size: 20px;
+    }
+    h2,#maze_size{
+        font-size: 17px;
+    }
+
 }
 @media screen and (min-width:310px) and (max-width:409px){
     #maze_container{
         border: 5px solid black;
         width: 300px;
         height: 300px;
+    }
+    h1{
+        font-size: 20px;
+    }
+    h2,#maze_size{
+        font-size: 17px;
     }
 }
 @media screen and (min-width:100px) and (max-width:309px){
@@ -63,4 +111,20 @@ h1{
         width: 200px;
         height: 200px;
     }
+    h1{
+        font-size: 20px;
+    }
+    h2,#maze_size{
+        font-size: 17px;
+    }
+    .sbtn{
+        font-size: 16px;
+        margin-left: 5px;
+        padding: 2px 10px;
+        
+        border-radius: 5px;
+        transition: 0.3s;
+    }
 }
+
+    
